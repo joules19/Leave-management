@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace leave_management.Models
 {
-    public class DetailsLeaveTypeVM
+    public class LeaveTypeVM
     {
         public int Id { get; set; }
-
+        [Required]
         public string Name { get; set; }
 
-        public DateTime DateCreated { get; set; }
+        [Required]
+        [Display(Name ="Default Number Of Days")]
+        [Range(1,50, ErrorMessage = "Please enter a valid number from 1 to 50.")]
+        public int DefaultDays { get; set; }
+
+        [Display(Name ="Date Created")]
+        public DateTime? DateCreated { get; set; }
     }
 
-    public class CreateLeaveTypeVM
-    {
-      
-        public string Name { get; set; }
-
-    }
 }

@@ -12,13 +12,8 @@ namespace leave_management.Models
 
        
         public int Id { get; set; }
-
-       
         public string Name { get; set; }
-
         public DateTime DateCreated { get; set; }
-
-      
         public EmployeeVM RequestingEmployee { get; set; }
         public string RequestingEmployeeId { get; set; }
         [Required]
@@ -26,14 +21,12 @@ namespace leave_management.Models
         [Required]
         public DateTime EndDate { get; set; }
 
-        public DetailsLeaveTypeVM LeaveType { get; set; }
+        public LeaveTypeVM LeaveType { get; set; }
         public int LeaveTypeId { get; set; }
         public IEnumerable<SelectListItem> LeaveTypes { get; set; }
         public DateTime DateRequested { get; set; }
         public DateTime DateActioned { get; set; }
         public bool? Approved { get; set; }
-
-       
         public EmployeeVM ApprovedBy { get; set; }
         public string ApprovedById { get; set; }
     }

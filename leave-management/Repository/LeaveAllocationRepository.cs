@@ -15,6 +15,7 @@ namespace leave_management.Repository
         {
             _db = db;
         }
+
         public bool Create(LeaveAllocation entity)
         {
             _db.LeaveAllocations.Add(entity);
@@ -37,6 +38,12 @@ namespace leave_management.Repository
         {
             var leaveAllocation = _db.LeaveAllocations.Find(id);
             return leaveAllocation;
+        }
+
+        public bool isExists(int id)
+        {
+            var exists = _db.LeaveTypes.Any(q => q.Id == id);
+            return exists;
         }
 
         public bool Save()

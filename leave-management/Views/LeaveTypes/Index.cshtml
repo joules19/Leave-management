@@ -1,0 +1,49 @@
+﻿@model IEnumerable<leave_management.Models.LeaveTypeVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Home</h1>
+
+<p>
+    <a class="btn btn-success mt-4 mb-2" asp-controller="LeaveTypes" asp-action="Create">
+        <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Create New
+    </a>
+</p>
+<table id="leaveTypes" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DefaultDays)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DefaultDays)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o" style="color: #ffc107" aria-hidden="true"></i></a> &nbsp;
+                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-info-circle" style="color: #5bc0de" aria-hidden="true"></i></a> &nbsp;
+                    <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to delete this record')"><i class="fa fa-trash" style="color: #d9534f" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+
+    </script>
+}
