@@ -1,5 +1,6 @@
 ﻿using leave_management.Contracts;
 using leave_management.Data;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,15 @@ namespace leave_management.Repository
         {
             _db.LeaveAllocations.Update(entity);
             return Save();
+        }
+
+
+        //Custom Functions
+        public bool CheckAllocation(int leaveTypeId, string employeeId)
+        {
+            var period = DateTime.Now.Year;
+            return FindAll().Where(q => q.LeaveTypeId == leaveTypeId &&
+                q.EmployeeId == employeeId && q.Period == period).Any();
         }
     }
 }

@@ -29,8 +29,8 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Apply for leave</a>
-                        </li>
+                            <a class="nav-link text-white" asp-area="" asp-controller="LeaveAllocation" asp-action="Index">Apply for leave</a>
+                        </li>   
                         @if (SignInManager.IsSignedIn(User))
                         {
                             if (User.IsInRole("Administrator"))
@@ -39,7 +39,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="false">Manage</a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <a class="dropdown-item" asp-controller="LeaveTypes" asp-action="Index">Leaves</a>
-                                        <a class="dropdown-item" href="#">Allocations</a>
+                                        <a class="dropdown-item" asp-controller="LeaveAllocation" asp-action="Index">Allocations</a>
                                         <a class="dropdown-item" href="#">Apllications</a>
                                         <a class="dropdown-item" href="#">Employees</a>
                                     </div>
